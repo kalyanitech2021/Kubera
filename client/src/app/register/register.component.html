@@ -1,0 +1,28 @@
+<div class="container"
+  style="height: 100%; padding-top: 1%; display: flex; align-items: center; justify-content: center;">
+  <form *ngIf="show">
+    <div class="form-group">
+      <label for="user_id">Email or Username</label>
+      <input type="text" class="form-control" id="user_id" [(ngModel)]="register.user_id" name="user_id" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" [(ngModel)]="register.password" name="password" required>
+    </div>
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" class="form-control" id="firstname" [(ngModel)]="register.firstname" name="firstname" required>
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" class="form-control" id="lastname" [(ngModel)]="register.lastname" name="lastname" required>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" style="margin-left: 25px;" (click)="addUser()">Save</button>
+      <button type="submit" class="btn btn-default" style="margin-left: 15px;"
+        (click)="cancelRegistration()">Cancel</button>
+    </div>
+  </form>
+</div>
+<router-outlet></router-outlet>
