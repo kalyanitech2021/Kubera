@@ -1,4 +1,5 @@
 var express = require('express');
+const https = require('https');
 const Stock = require('../models/stock.model');
 var router = express.Router();
 
@@ -25,8 +26,29 @@ router.getPortfolioForUser = async function (req, res) {
             { $sort: { _id: 1 }}
     ]);
 
-    console.log("Fetched docs -> " + JSON.stringify(fetchedDocs));
-    res.json(fetchedDocs);
+  console.log("Fetched docs -> " + JSON.stringify(fetchedDocs));
+  //console.log("Symbol: ", JSON.stringify(fetchedDocs._id));
+
+  let options = new URL("https://api.polygon.io/v1/open-close/AAPL/2021-03-18?unadjusted=true&apiKey=pmBa8aocPfpKZbUijR8JIECmjmruDBqH")
+
+  let myRequest = https.request(options, res => {
+      let data = "";
+
+      res.on("data", d => {
+        data += d;
+      })
+      res.on("end", () => {
+        console.log("data: ", data);
+      })
+    }
+  )
+  .end();
+    
+  res.json(fetchedDocs);
 };
 
 module.exports = router;
+
+//https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MRNA&outputsize=compact&interval=60min&apikey=K6ZF68H2QZHCO20U
+
+// https://api.polygon.io/v1/open-close/AAPL/2021-03-18?unadjusted=true&apiKey=pmBa8aocPfpKZbUijR8JIECmjmruDBqH

@@ -28,7 +28,6 @@ app.use('/api/stock', stockRouter);
 app.use('/api/dividend', dividendRouter);
 app.use('/api/portfolio', portfolioRouter);
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

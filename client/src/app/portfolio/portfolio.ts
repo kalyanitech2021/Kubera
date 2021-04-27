@@ -5,7 +5,8 @@ export class Portfolio {
         public purchasedDate: String,
         public totalQuantity: Number,
         public avgPrice: Number,
-        public totalBuyCost: Number
+        public totalBuyCost: Number,
+        public currentPrice: Number
       ) {  }
 }
 

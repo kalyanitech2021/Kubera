@@ -16,7 +16,8 @@ export class PortfolioService {
     purchasedDate: "",
     totalQuantity: 0,
     avgPrice: 0,
-    totalBuyCost: 0
+    totalBuyCost: 0,
+    currentPrice: 0
   };
 
   constructor(private http: HttpClient) { }

@@ -30,7 +30,8 @@ export class PortfolioComponent implements OnInit {
     purchasedDate: "",
     totalQuantity: 0,
     avgPrice: 0,
-    totalBuyCost: 0
+    totalBuyCost: 0,
+    currentPrice: 0
   };
 
   model: any = [];
@@ -50,7 +51,8 @@ export class PortfolioComponent implements OnInit {
               purchasedDate: data.purchasedDate,
               totalQuantity: data.totalQuantity,
               avgPrice: data.avgPrice,
-              totalBuyCost: data.totalBuyCost
+              totalBuyCost: data.totalBuyCost,
+              currentPrice: data.currentPrice
             });
           }
           console.log("<listPortfolio>: response is -- ", response);
